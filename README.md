@@ -1,4 +1,4 @@
-# Devv AI Factory
+# Sree AI 
 
 ## Tech Stack
 - React 18.2.0 + TypeScript 5.7.2 + Vite 6.3.1
