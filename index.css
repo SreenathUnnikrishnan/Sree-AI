@@ -1,0 +1,404 @@
+/**
+ * =====================================
+ *    SREE AI - DESIGN SYSTEM
+ * =====================================
+ * 
+ * Project: Sree AI
+ * Type: AI Assistant Platform
+ * 
+ * DESIGN PHILOSOPHY
+ * -----------------
+ * Core Principle: Sophisticated AI interface with modern aesthetics
+ * Design Style: Professional with rich gradients and depth
+ * Emotion Goal: Powerful, intelligent, and trustworthy
+ * 
+ * COLOR SYSTEM (HSL FORMAT)
+ * -------------
+ * Primary: 263 70% 50% - Deep purple for brand identity
+ * Secondary: 280 80% 55% - Vibrant purple for accents
+ * Accent: 45 100% 51% - Gold for premium features
+ * Background: 240 10% 4% - Deep dark background
+ * Surface: 240 6% 10% - Card and surface color
+ * Border: 240 4% 16% - Subtle borders
+ * 
+ * TYPOGRAPHY
+ * ----------
+ * Display: Inter for headlines and UI
+ * Body: Inter for content and messages
+ * Code: JetBrains Mono for code blocks
+ * 
+ * INTERACTIONS
+ * ------------
+ * Transitions: 200-300ms for smooth interactions
+ * States: Hover, focus, active with clear feedback
+ * Animations: Subtle and purposeful
+ * ====================================
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 6% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 6% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 45 100% 51%;
+    --accent-foreground: 240 10% 4%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(280 80% 55%) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(30 100% 50%) 100%);
+}
+
+.gradient-surface {
+  background: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(240 6% 8%) 100%);
+}
+
+/* Text gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(280 80% 65%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(30 100% 60%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Message bubble styling */
+.message-user {
+  @apply bg-primary/10 border border-primary/20;
+}
+
+.message-assistant {
+  @apply bg-card border border-border;
+}
+
+/* Code block styling */
+pre {
+  @apply bg-secondary rounded-lg p-4 overflow-x-auto;
+}
+
+code {
+  @apply font-mono text-sm;
+}
+
+/* Focus states */
+input:focus,
+textarea:focus,
+button:focus {
+  @apply outline-none ring-2 ring-primary/50;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
+button,
+a {
+  @apply transition-all duration-200;
+}
+
+/* 3D Transform Effects */
+.transform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.hover-lift-3d {
+  transition: all 0.3s ease;
+}
+
+.hover-lift-3d:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.glass-3d {
+  background: linear-gradient(135deg, 
+    hsl(var(--card) / 0.8) 0%, 
+    hsl(var(--card) / 0.6) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.3);
+}
+
+.premium-glass {
+  background: linear-gradient(135deg, 
+    hsl(var(--card)) 0%, 
+    hsl(240 6% 12%) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--primary) / 0.2);
+}
+
+.premium-button {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(280 80% 55%) 100%);
+  box-shadow: 0 4px 12px hsl(var(--primary) / 0.3);
+}
+
+.premium-button:hover {
+  box-shadow: 0 6px 20px hsl(var(--primary) / 0.4);
+  transform: translateY(-1px);
+}
+
+/* AI Gradient */
+.ai-gradient {
+  background: linear-gradient(135deg, 
+    hsl(var(--primary)) 0%, 
+    hsl(280 80% 60%) 50%,
+    hsl(var(--accent)) 100%);
+}
+
+/* Gold Gradient */
+.gold-gradient {
+  background: linear-gradient(135deg, 
+    hsl(var(--accent)) 0%, 
+    hsl(30 100% 60%) 100%);
+}
+
+/* Holographic Effect */
+.holographic {
+  background: linear-gradient(135deg, 
+    hsl(var(--primary)) 0%, 
+    hsl(280 80% 60%) 25%,
+    hsl(var(--accent)) 50%,
+    hsl(280 80% 60%) 75%,
+    hsl(var(--primary)) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holographic-shift 3s ease infinite;
+}
+
+@keyframes holographic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Neon Glow */
+.neon-glow {
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.5),
+               0 0 20px hsl(var(--primary) / 0.3),
+               0 0 30px hsl(var(--primary) / 0.2);
+}
+
+/* Pulse 3D Animation */
+@keyframes pulse-3d {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px hsl(var(--primary) / 0);
+  }
+}
+
+.animate-pulse-3d {
+  animation: pulse-3d 2s ease-in-out infinite;
+}
+
+/* Gentle Glow Animation */
+@keyframes gentle-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+}
+
+.animate-gentle-glow {
+  animation: gentle-glow 2s ease-in-out infinite;
+}
+
+/* Slide Up Animation */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+/* Hover Scale */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Message Styling */
+.ai-message {
+  @apply bg-card border border-border rounded-lg p-4;
+}
+
+.user-message {
+  @apply bg-primary/10 border border-primary/20 rounded-lg p-4;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: hsl(var(--primary));
+  margin-left: 2px;
+  animation: typing-blink 1s infinite;
+}
+
+@keyframes typing-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Feature Card */
+.feature-card {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/50;
+}
