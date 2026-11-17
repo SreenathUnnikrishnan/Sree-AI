@@ -5,7 +5,7 @@ import { componentTagger } from "@devvai/devv-tagger-plugin"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/sree-ai/",
+base: "/Sree-AI/",
   plugins: [componentTagger(), react()],
   resolve: {
     alias: {
