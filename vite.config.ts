@@ -1,10 +1,11 @@
-import path from "path"
+iimport path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { componentTagger } from "@devvai/devv-tagger-plugin"
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/sree-ai/",
   plugins: [componentTagger(), react()],
   resolve: {
     alias: {
